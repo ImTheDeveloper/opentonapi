@@ -26,6 +26,7 @@ It is possible to use the environment variables listed below to configure opento
 | LITE_SERVERS | -             | A comma-separated list of TON lite servers to work with. Each server has the following format: **ip:port:public-key**. <br/>Ex: "127.0.0.1:14395:6PGkPQSbyFp12esf1NqmDOaLoFA8i9+Mp5+cAx5wtTU=" | 
 | METRICS_PORT | 9010          | A port number used to expose `/metrics` endpoint with prometheus metrics                                                                                                                       | 
 | ACCOUNTS     | -             | A comma-separated list of accounts to watch for                                                                                                                                                | 
+| LOCAL_LITE_SERVER | -        | Specify local Lite Sever address&port |
 
 
 Advanced features like traces, NFTs, Jettons, etc require you to configure a set of accounts to watch for: 
