@@ -2,6 +2,7 @@ package rates
 
 import (
 	"encoding/json"
+	"log"
 	"fmt"
 	"os"
 	"io"
