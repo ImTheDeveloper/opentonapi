@@ -3,6 +3,7 @@ package rates
 import (
 	"encoding/json"
 	"fmt"
+	"os"
 	"io"
 	"math"
 	"net/http"
@@ -467,7 +468,12 @@ func convertedDedustPoolResponse(tonApiToken string, tonPrice float64, respBody 
 		if secondAsset.Metadata != nil {
 			secondReserveDecimals = secondAsset.Metadata.Decimals
 		} else {
-			url := fmt.Sprintf("https://tonapi.io/v2/jettons/%v", account.ToRaw())
+			baseUrl := os.Getenv("LOCAL_LITE_SERVER")
+		        if baseUrl == "" {
+		            log.Fatal("LOCAL_LITE_SERVER environment variable not set")
+		        }
+
+			url := fmt.Sprintf("%s/v2/jettons/%v", baseUrl, account.ToRaw())
 			jettonInfoRespBody, err := sendRequest(url, tonApiToken)
 			if err != nil {
 				zap.Error(err)
